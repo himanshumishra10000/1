@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html ng-app="cardDemo">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>Himanshu Mishra</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="deck-of-cards.css" />
+    <script data-require="angular.js@1.5.x" src="https://code.angularjs.org/1.5.8/angular.js" data-semver="1.5.8"></script>
+    <script src="deck-of-cards.js"></script>
+    <script src="demo.js"></script>
+  </head>
+
+  <body ng-controller="DemoController as vm" class="demoPage">       
+    <div>
+    <marquee>click on card to turn it upside down</marquee>
+      <button type="button" ng-click="vm.reset()">Reset</button>
+      <button type="button" ng-click="vm.shuffle()" ng-disabled="!vm.deck.cards.length">Shuffle</button>
+      <button type="button" ng-click="vm.dealOne()" ng-disabled="!vm.deck.cards.length">Deal One</button>
+      <button type="button" ng-click="vm.dealAll()" ng-disabled="!vm.deck.cards.length">Deal All</button>
+      <button type="button" ng-click="vm.dealShuffledDeck()">Shuffle &amp; Deal All</button>
+    </div>
+    Cards remaining: {{vm.deck.cards.length}}
+    
+    <ul class="card-list">
+      <li ng-repeat="card in vm.dealt">
+        <div class="card {{card.suit.color}}" title="{{card.displayName}}" ng-click="vm.emptyDiv($index)">
+          <div class="letter">{{card.letter}}</div>
+          <div class="suit" ng-bind-html="card.suit.glyph"></div>
+        </div>
+      </li>
+    </ul>
+  </body>
+</html>

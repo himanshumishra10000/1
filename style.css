@@ -1,0 +1,16 @@
+.demoPage {
+  background-color: #383;
+  color: white;
+}
+
+.demoPage button {
+  padding: 5px 8px;
+}
+
+.demoPage button:disabled {
+  opacity: 0.3;
+}
+
+.demoPage a {
+  color: #ee9;
+}
